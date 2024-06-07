@@ -27,7 +27,12 @@ export default function CustomSearchBar(props: searchInfo) {
             borderRadius: 15,   
             paddingRight: 42         
         }}
-        onChangeText={(value) => setSearchValue(value)}
+        onChangeText={(value) => {
+          setSearchValue(value)
+          if(value.length <= 0){
+            props.onSearch('');
+          }
+        }}
       />
         {/* <TouchableOpacity onPress={() => {}}> */}
             <TouchableOpacity  

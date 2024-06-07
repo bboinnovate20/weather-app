@@ -5,10 +5,10 @@ import Sunset from '@/assets/icons/sunset.svg'
 import Sunrise from '@/assets/icons/sunrise.svg'
 import { checkSunriseOrSunset } from './convertTimeStamp'
 
-export default function DetermineTimingIcon({sunset, sunrise}: {sunrise: number, sunset: number}) {
+export default function DetermineTimingIcon({sunset, sunrise, timezone}: {sunrise: number, sunset: number, timezone: number}) {
 // const timing = timing;
 
-  const getTimeStamp = checkSunriseOrSunset(sunset.toString(), sunrise.toString());
+  const getTimeStamp = checkSunriseOrSunset(sunset, sunrise, timezone);
 
   if(getTimeStamp == 'sunrise')
     return <Sunrise width={50} color={'#fffff'}/>

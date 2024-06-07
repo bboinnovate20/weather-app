@@ -2,27 +2,12 @@ import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import SingleDayWeatherInfo, { DailyWeatherInfo } from './SingleDayWeatherInfo';
 import { ThemedText } from './ThemedText';
-import DetermineTimingIcon from '@/app/utils/determineTimingIcon';
+import DetermineTimingIcon from '@/app/utils/DetermineTimingIcon';
 import { convertTimestamp } from '@/app/utils/convertTimeStamp';
 
 
-export default function DailyWeather({sunset, sunrise}: {sunset: number, sunrise: number}) {
+export default function TimingWeather({sunset, sunrise, timezone}: {sunset: number, sunrise: number, timezone: number}) {
 
-
-
-  const DailyWeather: DailyWeatherInfo[] = [
-    {
-      day: 'Sunset',
-      degree: '13°',
-      degreeIconStatus: 'rain'
-    },
-
-    {
-      day: 'Sunrise',
-      degree: '25°',
-      degreeIconStatus: 'rain'
-    },
-  ];
 
 
 
@@ -31,14 +16,14 @@ export default function DailyWeather({sunset, sunrise}: {sunset: number, sunrise
     <View style={styles.mainChart}>
       <View>
         <ThemedText style={{textAlign: 'center', fontWeight: 600, color: '#fff9'}}>Sunrise</ThemedText>
-        <ThemedText style={{fontSize: 20, fontWeight: 'bold', lineHeight: 30}}>{convertTimestamp(sunrise)}</ThemedText>
+        <ThemedText style={{fontSize: 20, fontWeight: 'bold', lineHeight: 30}}>{convertTimestamp(sunrise, timezone)}</ThemedText>
       </View>
       <View >
-        <DetermineTimingIcon sunrise={sunrise} sunset={sunset} />
+        <DetermineTimingIcon sunrise={sunrise} sunset={sunset} timezone={timezone} />
       </View>
       <View>
         <ThemedText style={{textAlign: 'center', fontWeight: 600, color: '#fff9'}}>Sunset</ThemedText>
-        <ThemedText style={{fontSize: 20, fontWeight: 'bold', lineHeight: 30}}>{convertTimestamp(sunset)}</ThemedText>
+        <ThemedText style={{fontSize: 20, fontWeight: 'bold', lineHeight: 30}}>{convertTimestamp(sunset, timezone)}</ThemedText>
       </View>    
     </View>
   )

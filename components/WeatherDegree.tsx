@@ -25,17 +25,19 @@ export default function WeatherDegree({currentWeather, degreeCelcius, city} : We
              <ThemedText type='defaultSemiBold' style={styles.textHeader}>{city}</ThemedText>
              <Location width={20} height={20} />
           </View>
-          <View style={styles.weatherDegree}>
-            <View>
-                <ThemedText
-                    // type='defaultSemiBold'
-                    style={{
-                    fontSize: 70,
-                    fontWeight: 600,
-                    }}>{Math.round(degreeCelcius)}</ThemedText>
-                <ThemedText type='defaultSemiBold' style={{fontSize: 20, textAlign: 'left'}}>{currentWeather}</ThemedText>
+          <View>
+            <View style={styles.weatherDegree}>
+              <View>
+                  <ThemedText
+                      // type='defaultSemiBold'
+                      style={{
+                      fontSize: 70,
+                      fontWeight: 600,
+                      }}>{Math.round(degreeCelcius)}</ThemedText>                
+              </View>
+                <ThemedText  style={{fontSize: 50, fontWeight: 'bold'}}>o</ThemedText>
             </View>
-              <ThemedText  style={{fontSize: 50, fontWeight: 'bold'}}>o</ThemedText>
+            <ThemedText type='defaultSemiBold' style={{fontSize: 20, textAlign: 'left'}}>{currentWeather}</ThemedText>            
           </View>
           
         </View>
@@ -48,8 +50,6 @@ export default function WeatherDegree({currentWeather, degreeCelcius, city} : We
 
 const styles = StyleSheet.create({
     weatherDegree: {
-      // backgroundColor: "#041187",
-      // flex:1,
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'flex-start'
@@ -67,7 +67,6 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      // height: '100%'
     }
 });
   
