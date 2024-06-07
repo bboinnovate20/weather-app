@@ -9,7 +9,6 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
-contants/__apiKey.ts
 # macOS
 .DS_Store
 
@@ -18,3 +17,5 @@ contants/__apiKey.ts
 
 expo-env.d.ts
 # @end expo-cli
+
+contants/
